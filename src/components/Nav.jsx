@@ -22,7 +22,7 @@ export default function Nav({
   onSetMode, onSelectRecent, onConnectWallet, onDisconnectWallet, onScan,
 }) {
   return (
-    <div style={{
+    <div className="nav-root" style={{
       background: 'var(--bg-secondary)',
       borderBottom: '2px solid var(--border)',
       padding: '4px 8px',
@@ -35,7 +35,7 @@ export default function Nav({
       zIndex: 200,
     }}>
       {/* Left: mode tabs + recent scans */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: 2, paddingLeft: 4, overflow: 'hidden', flexWrap: 'wrap' }}>
+      <div className="nav-left" style={{ display: 'flex', alignItems: 'center', gap: 2, paddingLeft: 4, overflowX: 'auto', flexWrap: 'nowrap', scrollbarWidth: 'none' }}>
         {MODES.map(m => (
           <button
             key={m.key}
@@ -90,8 +90,8 @@ export default function Nav({
         </div>
       </div>
 
-      {/* Center: Logo — unchanged */}
-      <div
+      {/* Center: Logo */}
+      <div className="nav-logo"
         onClick={() => onSetMode('feed')}
         style={{ cursor: 'pointer', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 3, padding: '4px 20px' }}
       >
@@ -108,7 +108,7 @@ export default function Nav({
       </div>
 
       {/* Right: Scan bar + Wallet */}
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: 6, paddingRight: 12 }}>
+      <div className="nav-right" style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: 6, paddingRight: 12 }}>
         <input
           className="search-input"
           type="text"

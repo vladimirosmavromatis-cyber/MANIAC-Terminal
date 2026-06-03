@@ -297,8 +297,8 @@ export default function ScannerView({
       </div>
 
       {/* Three-column layout */}
-      <div style={{ display: 'grid', gridTemplateColumns: '220px 1fr 210px', minHeight: 600 }}>
-        <LeftPanel
+      <div className="scanner-grid" style={{ display: 'grid', gridTemplateColumns: '220px 1fr 210px', minHeight: 600 }}>
+        <div className="scanner-left-panel"><LeftPanel
           pair={pair}
           rug={rug}
           riskLabel={riskLabel}
@@ -317,7 +317,7 @@ export default function ScannerView({
           snsLoading={snsLoading}
           copiedKey={copiedKey}
           onCopy={onCopy}
-        />
+        /></div>
 
         {/* Center: chart + tabs */}
         <div style={{ display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
@@ -449,26 +449,28 @@ export default function ScannerView({
           </div>
         </div>
 
-        <RightPanel
-          mint={mint}
-          pair={pair}
-          riskLabel={riskLabel}
-          riskColor={riskColor}
-          mintAuthority={mintAuthority}
-          freezeAuthority={freezeAuthority}
-          top10HoldPercent={top10HoldPercent}
-          holderCount={holderCount}
-          snipCount={sniperCount}
-          bundleCount={bundleCount}
-          insiderPercent={insiderPercent}
-          devPercent={devPercent}
-          cleanHolders={cleanHolders}
-          snsNames={snsNames}
-          creator={creator}
-          copiedKey={copiedKey}
-          onCopy={onCopy}
-          priceUsd={+(pair.priceUsd || 0)}
-        />
+        <div className="scanner-right-panel">
+          <RightPanel
+            mint={mint}
+            pair={pair}
+            riskLabel={riskLabel}
+            riskColor={riskColor}
+            mintAuthority={mintAuthority}
+            freezeAuthority={freezeAuthority}
+            top10HoldPercent={top10HoldPercent}
+            holderCount={holderCount}
+            snipCount={sniperCount}
+            bundleCount={bundleCount}
+            insiderPercent={insiderPercent}
+            devPercent={devPercent}
+            cleanHolders={cleanHolders}
+            snsNames={snsNames}
+            creator={creator}
+            copiedKey={copiedKey}
+            onCopy={onCopy}
+            priceUsd={+(pair.priceUsd || 0)}
+          />
+        </div>
       </div>
     </>
   );
